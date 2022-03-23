@@ -8,14 +8,11 @@ router.get('/', async function(req, res, next) {
   //res.render('index', { title: 'Express' });
 });
 
-router.post('/inserir', async function(req, res, next) {
-  const autor = {
-    nome: 'Rafael',
-    sobrenome: 'Albuquerque',
-    data_de_nascimento: '2005/03/01'
-  }
-  const autores = await Autor.inserir(autor);
+router.post('/inserir', async function(req, res, next){
+  const autores = await Autor.inserir(req.body);
   res.json(autores)
+
+
 });
 
 router.get('/deletar', async function(req, res, next) {
